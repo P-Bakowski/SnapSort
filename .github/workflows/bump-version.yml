@@ -1,0 +1,39 @@
+name: Bump patch version
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  bump-version:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Increment patch version
+        id: version
+        shell: pwsh
+        run: |
+          $path = 'Directory.Build.props'
+          [xml]$xml = Get-Content $path
+          $versionNode = $xml.SelectSingleNode('/Project/PropertyGroup/Version')
+          $current = [version]$versionNode.InnerText.Trim()
+          $next = "$($current.Major).$($current.Minor).$($current.Build + 1)"
+          $versionNode.InnerText = $next
+          $xml.Save((Resolve-Path $path))
+          "version=$next" >> $env:GITHUB_OUTPUT
+
+      - name: Commit version
+        shell: pwsh
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add Directory.Build.props
+          git commit -m "chore: bump version to v${{ steps.version.outputs.version }} [skip ci]"
+          git push

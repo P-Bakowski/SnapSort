@@ -1,0 +1,13 @@
+<Project>
+  <PropertyGroup>
+    <Version>1.0.1</Version>
+    <Authors>Patryk Bąkowski</Authors>
+    <Company>Patryk Bąkowski</Company>
+    <Copyright>Copyright © 2026 Patryk Bąkowski</Copyright>
+    <SatelliteResourceLanguages>pl;en</SatelliteResourceLanguages>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DebugType>None</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+</Project>

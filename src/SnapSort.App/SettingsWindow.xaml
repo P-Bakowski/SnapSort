@@ -1,0 +1,60 @@
+<Window x:Class="SnapSort.App.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ustawienia - SnapSort" Icon="Assets/Branding/SnapSort.ico" Width="500" Height="640" MinWidth="460" MinHeight="560"
+        WindowStartupLocation="CenterOwner" Background="{DynamicResource AppBackgroundBrush}"
+        Style="{StaticResource DialogWindowStyle}">
+    <Grid TextElement.Foreground="{DynamicResource TextBrush}">
+        <Grid.RowDefinitions><RowDefinition Height="64" /><RowDefinition Height="*" /><RowDefinition Height="66" /></Grid.RowDefinitions>
+        <Border Background="{DynamicResource SurfaceBrush}" BorderBrush="{DynamicResource LineBrush}" BorderThickness="0,0,0,1">
+            <StackPanel Margin="22,0" VerticalAlignment="Center">
+                <TextBlock Text="Ustawienia" FontSize="20" FontWeight="SemiBold" />
+                <TextBlock Text="Dostosuj analizę, wygląd i bezpieczeństwo" Style="{StaticResource MutedText}" Margin="0,3,0,0" />
+            </StackPanel>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="22,18">
+                <Border Style="{StaticResource CardBorder}" Padding="16" Margin="0,0,0,14">
+                    <StackPanel>
+                        <TextBlock Text="Analiza" Style="{StaticResource PanelHeaderText}" Margin="0,0,0,14" />
+                        <TextBlock Text="Czułość podobnych ujęć" Margin="0,0,0,6" />
+                        <ComboBox SelectedValue="{Binding Settings.SimilaritySensitivity}" SelectedValuePath="Content" Margin="0,0,0,14">
+                            <ComboBoxItem Content="Ścisła" /><ComboBoxItem Content="Normalna" /><ComboBoxItem Content="Luźna" />
+                        </ComboBox>
+                        <CheckBox Content="Wykrywaj rozmazane zdjęcia" IsChecked="{Binding Settings.DetectBlur}" Margin="0,0,0,10" />
+                        <CheckBox Content="Wykrywaj duplikaty" IsChecked="{Binding Settings.DetectDuplicates}" Margin="0,0,0,10" />
+                        <CheckBox Content="Automatyczna analiza po wejściu do folderu" IsChecked="{Binding Settings.AutoAnalyze}" />
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource CardBorder}" Padding="16" Margin="0,0,0,14">
+                    <StackPanel>
+                        <TextBlock Text="Wygląd" Style="{StaticResource PanelHeaderText}" Margin="0,0,0,14" />
+                        <TextBlock Text="Rozmiar miniaturek" Margin="0,0,0,6" />
+                        <Slider Minimum="140" Maximum="280" Value="{Binding ThumbnailSize}" Margin="0,0,0,14" />
+                        <TextBlock Text="Motyw" Margin="0,0,0,6" />
+                        <ComboBox SelectedValue="{Binding Settings.Theme}" SelectedValuePath="Content">
+                            <ComboBoxItem Content="Jasny" /><ComboBoxItem Content="Ciemny" /><ComboBoxItem Content="Systemowy" />
+                        </ComboBox>
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource CardBorder}" Padding="16">
+                    <StackPanel>
+                        <TextBlock Text="Bezpieczeństwo" Style="{StaticResource PanelHeaderText}" Margin="0,0,0,14" />
+                        <TextBlock Text="Folder kosza" Margin="0,0,0,6" />
+                        <TextBox Text="{Binding Settings.TrashFolderName, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,12" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Grid.Row="2" Background="{DynamicResource SurfaceBrush}" BorderBrush="{DynamicResource LineBrush}" BorderThickness="0,1,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="22,0">
+                <Button Content="Wyczyść stare miniatury" Command="{Binding CleanupCacheCommand}" Margin="0,0,10,0" />
+                <Button Content="Zapisz" Command="{Binding SaveSettingsCommand}" Click="SaveClicked" Style="{StaticResource AccentButton}" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

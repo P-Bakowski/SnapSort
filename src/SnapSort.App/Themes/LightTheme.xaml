@@ -1,0 +1,31 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Color x:Key="AccentColor">#2563EB</Color>
+    <Color x:Key="ShadowColor">#260F172A</Color>
+    <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}" />
+    <SolidColorBrush x:Key="AccentHoverBrush" Color="#1D4ED8" />
+    <SolidColorBrush x:Key="AccentSoftBrush" Color="#E8F0FF" />
+    <SolidColorBrush x:Key="AppBackgroundBrush" Color="#F4F6FA" />
+    <SolidColorBrush x:Key="TitleBarBrush" Color="#FBFCFE" />
+    <SolidColorBrush x:Key="SurfaceBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="SurfaceAltBrush" Color="#F8FAFD" />
+    <SolidColorBrush x:Key="SidebarBrush" Color="#FAFBFD" />
+    <SolidColorBrush x:Key="CardBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="ControlBrush" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="ControlHoverBrush" Color="#F1F5F9" />
+    <SolidColorBrush x:Key="ControlPressedBrush" Color="#E7ECF3" />
+    <SolidColorBrush x:Key="TextBrush" Color="#172033" />
+    <SolidColorBrush x:Key="MutedBrush" Color="#667085" />
+    <SolidColorBrush x:Key="SubtleTextBrush" Color="#98A2B3" />
+    <SolidColorBrush x:Key="LineBrush" Color="#E4E8EF" />
+    <SolidColorBrush x:Key="StrongLineBrush" Color="#D0D5DD" />
+    <SolidColorBrush x:Key="ScrollTrackBrush" Color="#E4E8EF" />
+    <SolidColorBrush x:Key="ScrollThumbBrush" Color="#94A3B8" />
+    <SolidColorBrush x:Key="SelectionBrush" Color="#DCE9FF" />
+    <SolidColorBrush x:Key="TilePlaceholderBrush" Color="#EEF2F7" />
+    <SolidColorBrush x:Key="OverlayBrush" Color="#B0182433" />
+    <SolidColorBrush x:Key="FolderBrush" Color="#F59E0B" />
+    <SolidColorBrush x:Key="DangerBrush" Color="#DC2626" />
+    <SolidColorBrush x:Key="SuccessBrush" Color="#16A34A" />
+    <SolidColorBrush x:Key="WhiteBrush" Color="#FFFFFF" />
+</ResourceDictionary>

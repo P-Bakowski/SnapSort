@@ -1,0 +1,32 @@
+<Window x:Class="SnapSort.App.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SnapSort" Icon="Assets/Branding/SnapSort.ico" Width="460" Height="390"
+        ResizeMode="NoResize" WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource AppBackgroundBrush}" Style="{StaticResource DialogWindowStyle}">
+    <Grid Margin="28" TextElement.Foreground="{DynamicResource TextBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Image Width="72" Height="72" Source="Assets/Branding/SnapSort_logo.png" Stretch="Uniform"
+                   RenderOptions.BitmapScalingMode="HighQuality" />
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="14,0,0,0">
+                <TextBlock Text="Snap" FontWeight="Bold" FontSize="28" />
+                <TextBlock Text="Sort" Foreground="{DynamicResource AccentBrush}" FontWeight="Bold" FontSize="28" />
+            </StackPanel>
+        </StackPanel>
+
+        <TextBlock Grid.Row="1" Margin="0,24,0,0" TextAlignment="Center" TextWrapping="Wrap"
+                   Text="SnapSort pomaga przeglądać, porównywać i porządkować kolekcje zdjęć oraz filmów." />
+
+        <StackPanel Grid.Row="2" Margin="0,26,0,0" HorizontalAlignment="Center">
+            <TextBlock Text="Autor: Patryk Bąkowski" TextAlignment="Center" />
+            <TextBlock x:Name="VersionText" Margin="0,8,0,0" Foreground="{DynamicResource MutedBrush}" TextAlignment="Center" />
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,6 @@
+Model: LH-Tech-AI/GyroScope
+Architecture: ResNet-18, 4 classes (0, 90, 180, 270 degrees)
+Source: https://huggingface.co/LH-Tech-AI/GyroScope
+License: Apache License 2.0
+Input: 224x224 RGB after EXIF orientation normalization
+ONNX size: 44,709,043 bytes

@@ -1,0 +1,32 @@
+# .NET / Visual Studio
+**/bin/
+**/obj/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Python / PyInstaller
+**/__pycache__/
+*.py[cod]
+.venv/
+venv/
+python/PhotoAnalysis.Worker/build/
+python/PhotoAnalysis.Worker/dist/
+python/PhotoAnalysis.Worker/*.spec
+
+# Generated releases and local tooling
+artifacts/
+.tools/
+
+# Local design materials and diagnostics
+materials/
+orientation-hits.jpg
+
+# OS / editors
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+.idea/
