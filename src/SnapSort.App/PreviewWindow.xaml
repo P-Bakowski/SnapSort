@@ -16,9 +16,9 @@
         <Border Grid.Row="1" Background="{DynamicResource SurfaceAltBrush}" BorderBrush="{DynamicResource LineBrush}" BorderThickness="0,1,0,0" Padding="20,10">
             <Border.Style><Style TargetType="Border"><Setter Property="Visibility" Value="Collapsed" /><Style.Triggers><DataTrigger Binding="{Binding IsVideo}" Value="True"><Setter Property="Visibility" Value="Visible" /></DataTrigger></Style.Triggers></Style></Border.Style>
             <Grid>
-                <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /><ColumnDefinition Width="110" /></Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /><ColumnDefinition Width="132" /></Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal">
-                    <Button Style="{StaticResource IconButton}" ToolTip="Odtwórz" Click="PlayVideo">&#xE768;</Button>
+                    <Button Style="{StaticResource IconButton}" ToolTip="Odtwórz" Click="PlayVideo" Background="{DynamicResource AccentSoftBrush}">&#xE768;</Button>
                     <Button Style="{StaticResource IconButton}" Margin="6,0,0,0" ToolTip="Pauza" Click="PauseVideo">&#xE769;</Button>
                 </StackPanel>
                 <Slider x:Name="Timeline" Grid.Column="1" Minimum="0" Maximum="1" Margin="18,0" VerticalAlignment="Center"
@@ -29,7 +29,7 @@
 
         <Border Background="{DynamicResource OverlayBrush}" CornerRadius="6" Padding="10,6"
                 HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="24">
-            <TextBlock Text="{Binding FileName}" Foreground="White" FontSize="14" />
+            <TextBlock Text="{Binding FileName}" Foreground="White" FontSize="12" MaxWidth="620" TextTrimming="CharacterEllipsis" />
         </Border>
     </Grid>
 </Window>

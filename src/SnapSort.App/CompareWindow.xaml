@@ -13,19 +13,29 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Border Width="360" Margin="14" Style="{StaticResource CardBorder}" Padding="10">
+                        <Border Width="352" Margin="16,20" Padding="0,0,16,0" BorderBrush="{DynamicResource LineBrush}" BorderThickness="0,0,1,0">
                             <Border.ContextMenu>
                                 <ContextMenu DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
                                     <MenuItem Header="Przenieś do kosza" Click="MovePhotoToTrash" />
                                 </ContextMenu>
                             </Border.ContextMenu>
-                            <StackPanel>
-                                <Image Source="{Binding Thumbnail}" Height="460" Stretch="Uniform" />
-                                <TextBlock Text="{Binding FileName}" FontWeight="SemiBold" Margin="0,10,0,4" TextTrimming="CharacterEllipsis" />
-                                <TextBlock Text="{Binding DisplayDate, StringFormat={}{0:dd.MM.yyyy HH:mm:ss}}" Foreground="{DynamicResource MutedBrush}" />
-                                <TextBlock Foreground="{DynamicResource MutedBrush}" Margin="0,4,0,0"><Run Text="{Binding Width}" /><Run Text=" × " /><Run Text="{Binding Height}" /></TextBlock>
-                                <TextBlock Text="{Binding SizeLabel}" Foreground="{DynamicResource MutedBrush}" Margin="0,4,0,0" />
-                            </StackPanel>
+                            <Grid>
+                                <Grid.RowDefinitions><RowDefinition Height="*" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                                <Image Source="{Binding Thumbnail}" Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality" />
+                                <StackPanel Grid.Row="1" Margin="0,20,0,0">
+                                    <TextBlock Text="{Binding FileName}" FontWeight="SemiBold" Margin="0,0,0,12" TextTrimming="CharacterEllipsis" ToolTip="{Binding FileName}" />
+                                    <Grid TextElement.FontSize="12">
+                                        <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions><RowDefinition Height="26" /><RowDefinition Height="26" /><RowDefinition Height="26" /></Grid.RowDefinitions>
+                                        <TextBlock Text="Wykonano" Style="{StaticResource MutedText}" />
+                                        <TextBlock Grid.Column="1" Text="{Binding DisplayDate, StringFormat={}{0:dd.MM.yyyy HH:mm:ss}}" HorizontalAlignment="Right" />
+                                        <TextBlock Grid.Row="1" Text="Rozdzielczość" Style="{StaticResource MutedText}" />
+                                        <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right"><Run Text="{Binding Width}" /><Run Text=" × " /><Run Text="{Binding Height}" /></TextBlock>
+                                        <TextBlock Grid.Row="2" Text="Rozmiar" Style="{StaticResource MutedText}" />
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SizeLabel}" HorizontalAlignment="Right" />
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
                         </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

@@ -5,6 +5,12 @@ using SnapSort.App.Models;
 using SnapSort.App.Services;
 using LibVLCSharp.Shared;
 
+if (args.Contains("--window-chrome"))
+{
+    WindowChromeChecks.Run();
+    return;
+}
+
 static void Assert(bool condition, string message)
 {
     if (!condition)
